@@ -1,0 +1,55 @@
+/* pages/search-music/index.wxss */
+page {
+  padding: 0 20rpx;
+  padding-top: 56px;
+  box-sizing: border-box;
+}
+.search-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+/* 2.搜索热门关键字 */
+.key-word .title {
+  margin: 10rpx 0;
+  font-weight: bolder;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.container .container-item:first-of-type {
+  color: greenyellow;
+}
+.container .container-item {
+  padding: 10rpx;
+  margin: 0 20rpx 20rpx 0;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  background-color: #fff;
+}
+/* 3.搜索结果 */
+.search-result .title {
+  margin: 20rpx 0;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #26ce8a;
+}
+.search-item {
+  display: flex;
+  align-items: center;
+}
+.search-item .search-icon {
+  width: 66rpx;
+  /* height: 80rpx; */
+  display: inline-block;
+  margin-right: 20rpx;
+}
+/* 4.通过具体名得到的结果 */
+.tips-word {
+  color: #26ce8a;
+  font-size: 30rpx;
+  margin: 15rpx;
+}

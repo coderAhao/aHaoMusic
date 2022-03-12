@@ -1,0 +1,52 @@
+/* components/song-swiper/index.wxss */
+.scroll {
+}
+.scroll-body {
+  width: 100vw;
+  position: relative;
+  left: -20rpx;
+  white-space: nowrap;
+}
+.container {
+  width: 200rpx;
+  height: 280rpx;
+  display: inline-block;
+  margin-right: 20rpx;
+  vertical-align: top; /* 顶部对齐，真机上可能会出现对不齐的情况 */
+}
+.container:first-of-type {
+  margin-left: 20rpx;
+}
+.coverPic {
+  position: relative;
+}
+.coverPic .img {
+  width: 200rpx;
+  display: block;
+  border-radius: 10rpx;
+}
+.coverPic .play-count {
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 15rpx;
+  bottom: 10rpx;
+  right: 10rpx;
+  padding: 5rpx;
+  font-size: 20rpx;
+  background: rgba(0,0,0, .5);
+  color: #fff;
+}
+.desc {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -moz-box;
+  -moz-line-clamp: 2;
+  -moz-box-orient: vertical;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+  overflow: hidden;
+  font-size: 26rpx;
+}

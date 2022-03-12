@@ -1,0 +1,24 @@
+<!-- 1. 搜索框 -->
+<van-search class="search-container" placeholder="搜索您喜爱的歌曲" shape="round" value="{{searchWord}}" bind:change="searchSong" show-action="{{searchWord}}" bind:cancel="clickCancel" bind:clear="clickCancel" />
+<view wx:if="{{!songResult.length}}">
+  <!-- 2.热门搜索关键字 -->
+  <view class="key-word" wx:if="{{showKeyWord}}">
+    <view class="title">热门搜索</view>
+    <view class="container">
+      <view class="container-item" wx:for="{{keyWordList}}" wx:key="first" bindtap="clickTipWord" data-tipword="{{item.first}}">{{item.first}}</view>
+    </view>
+  </view>
+  <!-- 3. 搜索结果 -->
+  <view class="search-result" wx:else>
+    <view class="title">搜索"{{searchWord}}"</view>
+    <view class="search-item" wx:for="{{songList}}" wx:key="keyword" bindtap="clickResultWord" data-resultword="{{index}}">
+      <image class="search-icon" src="/static/images/icon/search_icon.png" mode="widthFix" />
+      <!-- <text class="text">{{item.keyword}}</text> -->
+      <rich-text nodes="{{songNodes[index]}}" />
+    </view>
+  </view>
+</view>
+<view wx:else>
+  <view class="tips-word">最佳匹配</view>
+  <song-list-item songDetail="{{songResult}}" />
+</view>

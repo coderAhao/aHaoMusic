@@ -1,0 +1,29 @@
+<!--components/song-list/index.wxml-->
+<view class="container" wx:if="{{scrollSwitch}}">
+  <image class="bg-img" src="{{info.coverImgUrl}}" />
+  <view class="bg-cover" />
+  <view class="brief-introduction">
+    <image class="cover" mode="widthFix" src="{{info.coverImgUrl}}" />
+    <view class="desc">
+      <view class="title">{{info.name}}</view>
+      <view class="author">
+        <image class="avatar" mode="widthFix" src="{{info.creator.avatarUrl}}" />
+        <text class="author-name">{{info.creator.nickname}}</text>
+      </view>
+      <view class="introduction">简介：{{info.description}}</view>
+    </view>
+  </view>
+  <view class="collection-share">
+    <view class="collection">
+      <image class="icon" src="/static/images/icon/favor_icon.png" />
+      <text class="text">{{info.subscribedCount}}</text>
+    </view>
+    <view class="share">
+      <image class="icon" src="/static/images/icon/share_icon.png" />
+      <text class="text">分享</text>
+    </view>
+  </view>
+</view>
+<!-- 歌曲列表 -->
+<view wx:else class="song-detail-name">{{songDetailName}}</view>
+<song-list-item songDetail="{{songDetail}}" />

@@ -1,0 +1,23 @@
+<!--pages/detail-video/index.wxml-->
+<wxs src="/utils/format.wxs" module="format" />
+<view>
+  <video class="video" src="{{mvUrl}}" controls danmu-list="{{danmuList}}" danmu-btn enable-danmu autoplay show-fullscreen-btn show-mute-btn referrer-policy="origin" />
+  <view class="detail">
+    <view class="title">{{mvDetail.name}}</view>
+    <view class="desc">{{mvDetail.artistName + (mvDetail.alias && mvDetail.alias[0] ? mvDetail.alias[0] + '-' : '')}}</view>
+    <view class="count">{{format.formatPlayCount(mvDetail.playCount) + '次播放' + '-' + mvDetail.publishTime}}</view>
+  </view>
+  <view class="related">
+    <view class="title">推荐视频</view>
+    <view class="container" wx:for="{{relatedMv}}" wx:key="vid" bindtap="clickItemVideo" data-videoId="{{item.creator[0].userId}}">
+      <view class="left">
+        <image class="img" src="{{item.coverUrl}}" mode="widthFix" />
+        <text class="play-count">{{format.formatPlayCount(item.playTime)}}</text>
+      </view>
+      <view class="right">
+        <view class="desc">{{item.title}}</view>
+        <view class="name">{{item.creator[0].userName}}</view>
+      </view>
+    </view>
+  </view>
+</view>

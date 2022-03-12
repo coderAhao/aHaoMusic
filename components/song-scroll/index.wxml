@@ -1,0 +1,13 @@
+<!--components/song-swiper/index.wxml-->
+<wxs src="../../utils/format.wxs" module="format" />
+<view class="scroll">
+  <scroll-view class="scroll-body" scroll-x>
+    <view wx:for="{{songList}}" wx:key="index" class="container" bindtap="clickSwitch" data-itemId="{{item.id}}" data-itemIndex="{{index}}">
+      <view class="coverPic">
+        <image class="img" src="{{item.coverImgUrl}}" mode="widthFix" />
+        <view class="play-count">{{format.formatPlayCount(item.playCount)}}</view>
+      </view>
+      <view class="desc">{{item.name}}</view>
+    </view>
+  </scroll-view>
+</view>

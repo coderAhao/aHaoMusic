@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
+    "song-list-item": "../../components/song-list-item"
+  },
+  "onReachBottomDistance": 50
+}

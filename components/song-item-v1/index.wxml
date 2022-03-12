@@ -1,0 +1,13 @@
+<!--components/song-item-v1/index.wxml-->
+<view>
+  <view class="rankingList" wx:for="{{rankingList}}" wx:key="id" bindtap="clickItem" data-id="{{item.id}}" data-index="{{index}}">
+    <image class="left-img" src="{{item.al.picUrl}}" />
+    <view class="left-text">
+      <view class="title">{{item.name}}</view>
+      <text class="content">{{item.ar[0].name}} - {{item.name}}</text>
+    </view>
+    <view class="right">
+      <image class="img" src="/static/images/icon/arrow-right.png" />
+    </view>
+  </view>
+</view>

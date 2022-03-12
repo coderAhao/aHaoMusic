@@ -1,0 +1,50 @@
+<!--pages/music/music.wxml-->
+<wxs src="../../utils/format.wxs" module="format" />
+<!-- 1 头部搜索区域 -->
+<van-search disabled placeholder="搜索您喜欢的音乐" shape="round" background="#70aae4" bind:click-input="clickSearch" />
+<!-- 2 轮播图区域 -->
+<swiper class="swiper" indicator-dots indicator-color="rgb(0,245,255)" indicator-active-color="#FFDAB9" autoplay interval="1500" circular style="height: {{imgHeight}}px">
+  <swiper-item class="swiper-item" wx:for="{{swiperBanner}}" wx:key="bannerId">
+    <image class="swiper-img" src="{{item.pic}}" mode="widthFix" bindload="handleImgLoaded" />
+  </swiper-item>
+</swiper>
+<!-- 3 推荐歌曲 -->
+<area-header title="推荐歌曲"></area-header>
+<song-item-v1 rankingList="{{rankingList}}" />
+<!-- 4 热门歌单 -->
+<area-header title="热门歌单" />
+<song-scroll songList="{{hotList}}" />
+<!-- 5 古风歌单 -->
+<area-header title="古风歌单" />
+<song-scroll songList="{{ancientList}}" />
+<!-- 6 华语歌单 -->
+<area-header title="华语歌单" />
+<song-scroll songList="{{chineseList}}" />
+<!-- 7 巅峰榜 -->
+<view class="billboard {{showPlay ? 'add-bottom' : ''}}">
+  <view class="title">巅峰榜</view>
+  <view class="circle" wx:for="{{allSong}}" wx:key="id" bindtap="clickBillBoard" data-id="{{item.id}}">
+    <view class="container">
+      <view class="item-name">{{item.name}}</view>
+      <view class="item-song" wx:for="{{item.tracks}}" wx:key="id" wx:for-item="trackItem" wx:for-index="trackIndex">
+        <text>{{trackIndex + 1}}.</text>
+        <text>{{trackItem.name}}</text>
+        <text>-</text>
+        <text class="author">{{trackItem.ar[0].name}}</text>
+      </view>
+    </view>
+    <image class="img" mode="widthFix" src="{{item.coverImgUrl}}" />
+    <view class="play-count">{{format.formatPlayCount(item.playCount)}}</view>
+  </view>
+</view>
+<!-- 8 播放界面 -->
+<view class="is-playing" wx:if="{{showPlay}}">
+  <view class="left" bindtap="switchToPlay">
+    <image class="img circle-animation" style="animation-play-state: {{isPlay ? 'running' : 'paused'}};" src="{{picUrl}}" alt=""/>
+    <view class="music-name">{{musicName}}</view>
+  </view>
+  <view class="right">
+    <image wx:if="{{isPlay}}" class="img" src="/static/images/icon/play_pause.png" bindtap="clickSwitch" data-val="{{1}}" alt=""/>
+    <image wx:else class="img" src="/static/images/icon/play_resume.png" bindtap="clickSwitch" data-val="{{0}}" alt=""/>
+  </view>
+</view>

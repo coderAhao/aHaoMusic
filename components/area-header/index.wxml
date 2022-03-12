@@ -1,0 +1,12 @@
+<!--components/area-header/index.wxml-->
+<view class="header">
+  <view class="left">{{title}}</view>
+  <view class="right">
+  <!-- <view class="right"> -->
+    <view class="slot"><slot></slot></view>
+    <view class="default">
+      <text>{{rightText}}</text>
+      <image class="icon" src="/static/images/icon/arrow-right.png" />
+    </view>
+  </view>
+</view>

@@ -1,0 +1,33 @@
+// 格式化播放次数
+function formatPlayCount(count) {
+  var countValue = null
+  var count = parseInt(count)
+  if(count < 10000) {
+    countValue = count
+  } else {
+    countValue = ((parseInt(count / 1000)) / 10).toFixed(1) + '万'
+  }
+  return countValue
+}
+function padLeftZero(val) {
+  val = val + ''
+  return ("00" + val).slice(val.length)
+}
+// 格式化播放时间
+function formatDuration(time) {
+  var time = parseInt(time / 1000)
+  var timeValue = null
+  var hour = parseInt(time / 3600)
+  var minute = parseInt((time % 3600) / 60)
+  var second = time % 60
+  if(hour) {
+    timeValue = padLeftZero(hour) + ':' + padLeftZero(minute) + ':' + padLeftZero(second)
+  } else {
+    timeValue = padLeftZero(minute) + ':' + padLeftZero(second)
+  }
+  return timeValue
+}
+module.exports = {
+  formatPlayCount: formatPlayCount,
+  formatDuration: formatDuration
+}

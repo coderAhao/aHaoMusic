@@ -1,0 +1,15 @@
+<!--components/song-list-item/index.wxml-->
+<view class="list">
+  <view class="item" wx:for="{{songDetail}}" wx:key="index">
+    <text class="index">{{index + 1}}</text>
+    <view class="song" bindtap="switchToPlay" data-item="{{item}}" data-index="{{index}}">
+      <view class="song-name">{{item.name}}</view>
+      <view class="author">
+        <image class="icon" mode="widthFix" src="/static/images/icon/sq_icon.png" />
+        <text class="author-name" wx:if="{{item.artists[0]}}">{{item.artists[0].name}}</text>
+        <text class="author-name" wx:elif="{{item.ar[0]}}">{{item.ar[0].name}}</text>
+        <text class="author-name" wx:else>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+</view>
